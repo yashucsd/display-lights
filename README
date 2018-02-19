@@ -1,0 +1,71 @@
+/*
+ * Filename: README
+ * Author: Yash Nevatia
+ * Description:	A program that can set, clear, toggle, shift, rotate, and ripple
+ *              UCSD's Theatre and Dance Department's bank of lights
+ * Date: 14 February 2017
+ * Sources of Help      
+ */
+
+Compilation: 	Compilation requires all of the following files: checkCmd.s,
+				checkPrompt.c, clear.c, displayLights.s, pa2.h, pa2Strings.h,
+				printChar.s, ripple.s, rotate.s, set.s, shift.s, and the some C
+				libraries (stdio.h, stdlib.h, string.h, errno.h, unistd.h). Run
+				'make' (acceses the make file) in the pa2 directory to compile
+				these files.
+
+How: 			To run the program, either choose a filename to follow ./pa2 as
+				as an argument, for example: ./pa1 "file", or go without, and 
+				use the prompt to manipulate a set (by calling 'set' command) of 
+				lights (lightbank) with the follwoing commands: set, clear,
+				toggle, shift, rotate, ripple, help or quit.
+
+Output:			The program will output a text representation of the lights with
+				dashes and asterisks after the given command is executed.
+
+pa1$ ./pa2
+
+> set 0x83838383 0x38383838
+**** --** **** --** **** --** **** --** --** *--* --** *--* --** *--* --** *--*
+> clear 0xf0f0f0f0 0x01010101
+---- --** ---- --** ---- --** ---- --** --** *--- --** *--- --** *--- --** *---
+> clear 0 0x00000008
+---- --** ---- --** ---- --** ---- --** --** *--- --** *--- --** *--- --** ----
+> toggle 1 15
+---- --** ---- --** ---- --** ---- --*- --** *--- --** *--- --** *--- --** ****
+
+				This is what an erroneous output would look like, it would
+				print to stdout
+
+pa2$ ./pa2
+
+> rip
+	
+	Bad command. Type "help" for more info.
+
+
+Testing:		Some logic-based assembly files (displayLights, set, shift) and
+				the checkCmd C file were tested independently to make sure
+				that their outputs were accurate. These are some of the inputs
+				used to make sure that the outputs matched with expectations,
+				testing the program
+
+Normal									For Errors
+./pa2 			 						./pa2 5 a a a a
+./pa2 "file2"		 					./pa2 "nonexistantfile"
+
+Questions: 		1.	mv oldname newname
+				2.	cp location destination
+				3.  it pastes
+				4.  has initialisation commands, make a file ~/.vimrc and
+					add what you need
+				5.  dd, p
+				6.  /searchterm
+				7.  : set number
+				8.  cd ~/fubar
+				9.  chmod g+r
+				10. It's illegal to steal intellecutal property and sell
+				 	software claiming it as one's own. An engineer without
+				 	integrity is not only useless in a professional environment
+				 	but also is a threat to the success and reputation of said 
+				 	environment.
